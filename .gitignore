@@ -1,0 +1,52 @@
+# Ignorar la carpeta target
+/target/
+
+# Ignorar archivos de logs
+**/*.log
+
+# Ignorar archivos de bloqueo
+Cargo.lock
+
+# Ignorar archivos de compilación de dependencia
+**/*.rs.bk
+
+# Ignorar archivos generados por herramientas de construcción
+**/*.rlib
+**/*.rmeta
+
+# Ignorar configuraciones del IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de pruebas
+/tests/output/
+
+# Ignorar archivos generados por herramientas de documentación
+/doc/
+
+# Ignorar artefactos de compilación cruzada
+/target/
+
+# Ignorar binarios generados
+**/*.exe
+**/*.exe~
+**/*.out
+**/*.out~
+**/*.dSYM/
+
+# Ignorar artefactos de pruebas
+/tests/test-output/
+
+# Ignorar archivos temporales de edición
+**/*~
+**/*.swp
+
+# Ignorar archivos de configuración personal
+
+.env
