@@ -1,44 +1,9 @@
 use actix_web::{get, post, web, HttpResponse, Responder};
 use futures::stream::TryStreamExt;
-use mongodb::bson::{doc, oid::ObjectId};
-use mongodb::Client;
-use serde::{Deserialize, Serialize};
 use std::sync::Mutex;
 
-pub struct AppState {
-    pub client: Client,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct Author {
-    name: String,
-    last_name: String,
-    birth_date: String,
-    books: Vec<Book>,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-struct AuthorDb {
-    #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
-    pub id: Option<ObjectId>,
-    pub name: String,
-    pub last_name: String,
-    pub birth_date: String,
-    pub books: Vec<Book>,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-struct Book {
-    title: String,
-    description: String,
-    pages: u8,
-}
-
-#[derive(Debug, Serialize)]
-struct ApiResponse {
-    result: String,
-    data: Author,
-}
+use crate::models::author::{Author, ApiResponse};
+use crate::state::AppState;
 
 #[post("/author")]
 pub async fn add_author(
