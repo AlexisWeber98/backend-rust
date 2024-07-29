@@ -31,3 +31,11 @@ pub struct ApiResponse {
     pub result: String,
     pub data: Author,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct UpdateAuthor {
+    pub name: Option<String>,
+    pub last_name: Option<String>,
+    pub birth_date: Option<String>,
+    pub books: Option<Vec<Book>>,
+}

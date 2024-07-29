@@ -6,7 +6,7 @@ mod handlers;
 mod models;
 mod state;
 
-use handlers::author_handlers::{add_author, get_all, get_author};
+use handlers::author_handlers::{add_author, delete_author, get_all, get_author};
 use state::AppState;
 
 #[actix_web::main]
@@ -21,6 +21,7 @@ async fn main() -> std::io::Result<()> {
             .service(add_author)
             .service(get_all)
             .service(get_author)
+            .service(delete_author)
     })
     .bind(("127.0.0.1", 8080))?
     .run()
